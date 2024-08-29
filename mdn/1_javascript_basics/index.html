@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/main.js" defer></script>
+    <!-- 从其他文件引入JavaScript -->
+    <!-- https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics -->
+</head>
+
+<body>
+    <h1 title="嘻嘻">tmp</h1>
+    <!-- 将被更改为helloworld，通过DOM API -->
+    <!-- https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model -->
+    <!-- 备忘 学习开发者工具 -->
+    <!-- https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools -->
+    <button id="Conditional_statement">条件语句</button>
+    <script>
+        let button_Conditional_statement = document.getElementById("Conditional_statement");
+        button_Conditional_statement.addEventListener("click", () => {
+            let iceCream = "chocolate";
+            if (iceCream === "chocolate") {
+                alert("我最喜欢巧克力冰淇淋了。");
+            } else {
+                alert("但是巧克力才是我的最爱呀……");
+            }
+        });
+        // click是事件名称，后面那个匿名函数是回调函数
+
+    </script>
+
+    <script>
+        // 函数 实现乘法功能
+        function multiply(num1, num2) {
+            let result = num1 * num2;
+            return result;
+        }
+        //输出3乘以7
+        console.log("3*7的结果是" + multiply(3, 7));
+
+    </script>
+
+    <script>
+        // 文字切换器
+        let myImage = document.querySelector("h1");
+
+        myImage.onclick = function () {
+            let mySrc = myImage.getAttribute("title");
+            if (mySrc === "嘻嘻") {
+                myImage.setAttribute("title", "嘿嘿");
+            } else {
+                myImage.setAttribute("title", "嘻嘻");
+            }
+        };
+        //点击和悬浮于h1上以查看效果
+    </script>
+
+    <button id="btn_trans_user">切换用户</button>
+    <h2 id="user_name"></h2>
+    <script>
+        // 切换用户
+        let myButton = document.getElementById("btn_trans_user");
+        let myHeading = document.getElementById("user_name");
+        myButton.addEventListener("click", setUserName);
+        // 另一种绑定方式
+        // myButton.onclick = function () {
+        //     setUserName();
+        // };
+
+        function setUserName() {
+            let myName = prompt("请输入你的名字。");
+            if (!myName) {
+                setUserName();
+            } else {
+                localStorage.setItem("name", myName);
+                myHeading.textContent = "Mozilla 酷毙了，" + myName;
+            }
+        }
+
+        // 初始块代码，在页面初次读取时开始工作
+        if (!localStorage.getItem("name")) {
+            setUserName();
+        } else {
+            let storedName = localStorage.getItem("name");
+            myHeading.textContent = "Mozilla 酷毙了，" + storedName;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
