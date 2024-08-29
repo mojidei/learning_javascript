@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Player 1: Chris</p>
+    <style>
+        p {
+            font-family: "helvetica neue", helvetica, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            border: 2px solid rgb(0 0 200 / 0.6);
+            background: rgb(0 0 200 / 0.6);
+            color: rgb(255 255 255 / 1);
+            box-shadow: 1px 1px 2px rgb(0 0 200 / 0.4);
+            border-radius: 10px;
+            padding: 3px 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        const para = document.querySelector("p");
+
+        para.addEventListener("click", updateName);
+
+        function updateName() {
+            const name = prompt("Enter a new name");
+            para.textContent = `Player 1: ${name}`;
+        }
+
+    </script>
+
+
+    <button>Click me</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            function createParagraph() {
+                const para = document.createElement("p");
+                para.textContent = "你点击了按钮！";
+                document.body.appendChild(para);
+            }
+
+            const buttons = document.querySelectorAll("button");
+
+            for (const button of buttons) {
+                button.addEventListener("click", createParagraph);
+            }
+        });
+
+        const buttons = document.querySelectorAll("button");
+
+        // for (let i = 0; i < buttons.length; i++) {
+        //     buttons[i].addEventListener("click", createParagraph);
+        // }
+
+    </script>
+
+    <!-- 防止html加载前调用JavaScript的方法 -->
+    <script>
+        // 对于内部
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     // …
+        // });
+        // 解决此问题的旧方法是：把脚本元素放在文档体的底端（也就是 </body> 标签之前，与之相邻）
+
+        // 对于外部
+        // <script src="script.js" defer>
+        </script>
+
+        <!-- async与defer -->
+        <!-- async加载完后立刻执行，不保证执行顺序，defer会按照顺序依次加载若干个js，在加载完后执行 -->
+    </script>
+</body>
+
+</html>
