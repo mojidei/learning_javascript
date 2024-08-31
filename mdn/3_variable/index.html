@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        myName = "Chris";
+
+        function logName() {
+            console.log(myName);
+        }
+
+        logName();
+
+        var myName;
+        // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/var#%E6%8F%90%E5%8D%87
+
+        // 没有理由使用 var，以后都用let
+    </script>
+
+    <script>
+        let myNameArray = ["Chris", "Bob", "Jim"];
+        let myNumberArray = [10, 15, 40];
+
+        console.log(typeof (myNameArray));
+        console.log(typeof (myName));
+
+    </script>
+
+    <script>
+        const name = "克里斯";
+        const greeting = `你好，${name}`;
+        console.log(greeting); // "你好，克里斯"
+        console.log(greeting + "，" + name);
+
+    </script>
+
+    <button>按这里</button>
+    <div id="greeting"></div>
+
+    <script>
+        const button = document.querySelector("button");
+
+        function greet() {
+            const name = prompt("你叫什么名字？");
+            const greeting = document.querySelector("#greeting");
+            greeting.textContent = `你好呀，${name}！很高兴见到你！`;
+        }
+
+        button.addEventListener("click", greet);
+
+    </script>
+
+    <script>
+        const newline = `终于有一天，
+你知道了必须做的事情，而且开始……`;
+        console.log(newline);
+
+        /*
+        终于有一天，
+        你知道了必须做的事情，而且开始……
+        */
+
+    </script>
+
+    <script>
+        let browserType = "mozilla";
+        console.log("字符串的长度为" + browserType.length);
+    </script>
+
+    <script>
+        let myData = "Manchester,London,Liverpool,Birmingham,Leeds,Carlisle";
+        let myArray = myData.split(",");
+
+        console.log(myArray);
+        let myNewString = myArray.join(",");
+        console.log(myNewString);
+
+        let dogNames = ["Rocket", "Flash", "Bella", "Slugger"];
+        dogNames = dogNames.toString(); //Rocket,Flash,Bella,Slugger
+        console.log(dogNames);
+
+
+        myArray.push("Cardiff");
+        console.log(myArray);
+
+        myArray.push("Bradford", "Brighton");
+        console.log(myArray);
+
+        let removedItem = myArray.pop();
+        console.log(myArray);
+        console.log(removedItem);
+
+        // unshift() 和 shift() 从功能上与 push() 和 pop() 完全相同，只是它们分别作用于数组的开始，而不是结尾。
+        
+
+
+
+
+
+
+    </script>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</body>
+
+</html>
